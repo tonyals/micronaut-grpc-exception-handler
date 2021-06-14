@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.content4devs";
+option java_outer_classname = "MicronautGrpcExceptionHandler";
+option objc_class_prefix = "HLW";
+
+package br.com.content4devs;
+
+service MicronautGrpcExceptionHandlerService {
+  rpc send (MicronautGrpcExceptionHandlerRequest) returns (MicronautGrpcExceptionHandlerReply) {}
+}
+
+message MicronautGrpcExceptionHandlerRequest {
+  string name = 1;
+}
+
+message MicronautGrpcExceptionHandlerReply {
+  string message = 1;
+}
