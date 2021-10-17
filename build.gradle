@@ -14,7 +14,7 @@ wrapper {
 }
 
 version = "0.1"
-group = "br.com.content4devs"
+group = "br.com.tony"
 
 repositories {
     mavenCentral()
@@ -24,7 +24,7 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("br.com.content4devs.*")
+        annotations("br.com.tony.*")
     }
 }
 
@@ -40,7 +40,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("br.com.content4devs.Application")
+    mainClass.set("br.com.tony.Application")
 }
 
 jar {

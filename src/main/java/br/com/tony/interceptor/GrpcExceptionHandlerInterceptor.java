@@ -1,6 +1,6 @@
-package br.com.content4devs.interceptor;
+package br.com.tony.interceptor;
 
-import br.com.content4devs.exception.BaseBusinessException;
+import br.com.tony.exception.BaseBusinessException;
 import io.grpc.*;
 
 import javax.inject.Singleton;
