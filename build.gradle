@@ -1,51 +1,38 @@
 buildscript {
     repositories {
-        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:6.1.0'
     }
 }
 
 plugins {
-    id("io.micronaut.application") version "1.5.0"
-    id("com.google.protobuf") version "0.8.15"
+    id 'java'
 }
 
-wrapper {
-    gradleVersion = '6.7'
-}
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
 
-version = "0.1"
-group = "br.com.tony"
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-micronaut {
-    testRuntime("junit5")
-    processing {
-        incremental(true)
-        annotations("br.com.tony.*")
-    }
-}
-
 dependencies {
-    apiElements("io.micronaut:micronaut-runtime")
-    implementation("io.micronaut.grpc:micronaut-grpc-runtime")
-    apiElements("io.micronaut.grpc:micronaut-grpc-runtime")
-    apiElements("javax.annotation:javax.annotation-api")
-    runtimeOnly("ch.qos.logback:logback-classic")
-    apiElements("io.micronaut:micronaut-validation")
-
-    testImplementation("io.micronaut:micronaut-http-client")
+    annotationProcessor('io.micronaut:micronaut-inject-java:3.1.0')
+    implementation('io.micronaut:micronaut-runtime:3.1.0')
+    implementation("io.grpc:grpc-core:1.41.0")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
-application {
-    mainClass.set("br.com.tony.Application")
-}
-
-jar {
-    baseName("micronaut-grpc-exception-handler")
-    version("0.0.1")
+shadowJar {
+    archiveBaseName.set('micronaut-grpc-exception-handler')
+    archiveClassifier.set('')
+    archiveVersion.set('0.0.1')
 }
 
 java {
@@ -53,21 +40,6 @@ java {
     targetCompatibility = JavaVersion.toVersion("11")
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs("build/generated/source/proto/main/grpc")
-            srcDirs("build/generated/source/proto/main/java")
-        }
-    }
-}
-
-protobuf {
-    protoc { artifact = "com.google.protobuf:protoc:3.14.0" }
-    plugins {
-        grpc { artifact = "io.grpc:protoc-gen-grpc-java:1.33.1" }
-    }
-    generateProtoTasks {
-        all()*.plugins { grpc {} }
-    }
+test {
+    useJUnitPlatform()
 }

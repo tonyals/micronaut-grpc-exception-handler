@@ -2,8 +2,7 @@ package br.com.tony.interceptor;
 
 import br.com.tony.exception.BaseBusinessException;
 import io.grpc.*;
-
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 
 @Singleton
 public class GrpcExceptionHandlerInterceptor implements ServerInterceptor {
