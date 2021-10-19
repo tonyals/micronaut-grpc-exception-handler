@@ -14,8 +14,8 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'br.com.tony'
+version '0.0.1'
 
 repositories {
     mavenCentral()
