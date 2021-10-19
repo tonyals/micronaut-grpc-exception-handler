@@ -1,14 +1,14 @@
-package br.com.content4devs;
+package br.com.tony;
 
 import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 @MicronautTest
-class MicronautGrpcExceptionHandlerTest {
+class ExceptionHandlerDemoTest {
 
     @Inject
     EmbeddedApplication<?> application;

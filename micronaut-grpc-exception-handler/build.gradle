@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:6.1.0'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+group 'br.com.tony'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor('io.micronaut:micronaut-inject-java:3.1.0')
+    implementation('io.micronaut:micronaut-runtime:3.1.0')
+    implementation("io.grpc:grpc-core:1.41.0")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+shadowJar {
+    archiveBaseName.set('micronaut-grpc-exception-handler')
+    archiveClassifier.set('')
+    archiveVersion.set('0.0.1')
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
+}
+
+test {
+    useJUnitPlatform()
+}
