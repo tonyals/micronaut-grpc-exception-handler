@@ -1,4 +1,4 @@
-package br.com.content4devs;
+package br.com.tony;
 
 import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
