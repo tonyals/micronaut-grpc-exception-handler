@@ -6,7 +6,7 @@ sendo capturadas.
 
 A estrutura atual de exceções está da seguinte forma:
 
-<img src="./img/initial-structure.png" alt="Estrutura inicial"/>
+<img src="./img/exception-structure.png" alt="Estrutura inicial"/>
 
 Para você implementar uma exceção customizada que seja capturada pelo interceptor basta estender da **BaseBusinessException** e adicionar sua própria mensagem e código de erro.
 
