@@ -12,6 +12,10 @@ Para você implementar uma exceção customizada que seja capturada pelo interce
 
 ## Testando a lib localmente
 
+Para você implementar uma exceção customizada que seja capturada pelo interceptor basta estender da **BaseBusinessException** e adicionar sua própria mensagem e código de erro.
+
+## Testando a lib localmente
+
 Para testar a implementação basta executar a task `shadowJar` do projeto `micronaut-grpc-exception-handler` e
 importar o jar gerado no build.gradle do projeto `exception-handler-demo` substituindo o caminho 
 `implementation files("diretorio-do-jar/micronaut-grpc-exception-handler-0.0.1.jar")` pelo path onde foi salvo o jar gerado anteriormente.
